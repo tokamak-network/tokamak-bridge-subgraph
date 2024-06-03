@@ -1,0 +1,8 @@
+{
+  "mainnet": {
+    "L1CrossDomainMessenger": {
+      "address": "0x7aebb3466d08620c0be641f12c5d930e52b2d302",
+      "startBlock": 17426453
+    }
+  }
+}
