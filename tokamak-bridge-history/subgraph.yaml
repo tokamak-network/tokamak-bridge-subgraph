@@ -8,7 +8,7 @@ dataSources:
     name: L1CrossDomainMessenger
     network: mainnet
     source:
-      address: "0x7aebb3466d08620c0be641f12c5d930e52b2d302"
+      address: "0xfd76ef26315Ea36136dC40Aeafb5D276d37944AE"
       abi: L1CrossDomainMessenger
       startBlock: 17426453
     mapping:
@@ -54,3 +54,58 @@ dataSources:
         - event: Unpaused(address)
           handler: handleUnpaused
       file: ./src/l-1-cross-domain-messenger.ts
+  - kind: ethereum
+    name: StateCommitmentChain
+    network: mainnet
+    source:
+      address: "0x66b9f45E84A0aD7fE3983c97556798352a8E0a56"
+      abi: StateCommitmentChain
+      startBlock: 17426439
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - StateBatchAppended
+        - StateBatchDeleted
+      abis:
+        - name: StateCommitmentChain
+          file: ./abis/StateCommitmentChain.json
+      eventHandlers:
+        - event: StateBatchAppended(indexed uint256,bytes32,uint256,uint256,bytes)
+          handler: handleStateBatchAppended
+        - event: StateBatchDeleted(indexed uint256,bytes32)
+          handler: handleStateBatchDeleted
+      file: ./src/state-commitment-chain.ts
+  - kind: ethereum
+    name: L1StandardBridge
+    network: mainnet
+    source:
+      address: "0x59aa194798Ba87D26Ba6bEF80B85ec465F4bbcfD"
+      abi: L1StandardBridge
+      startBlock: 17426513
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - ERC20DepositInitiated
+        - ERC20WithdrawalFinalized
+        - ETHDepositInitiated
+        - ETHWithdrawalFinalized
+      abis:
+        - name: L1StandardBridge
+          file: ./abis/L1StandardBridge.json
+      eventHandlers:
+        - event: ERC20DepositInitiated(indexed address,indexed address,indexed
+            address,address,uint256,bytes)
+          handler: handleERC20DepositInitiated
+        - event:
+            ERC20WithdrawalFinalized(indexed address,indexed address,indexed
+            address,address,uint256,bytes)
+          handler: handleERC20WithdrawalFinalized
+        - event: ETHDepositInitiated(indexed address,indexed address,uint256,bytes)
+          handler: handleETHDepositInitiated
+        - event: ETHWithdrawalFinalized(indexed address,indexed address,uint256,bytes)
+          handler: handleETHWithdrawalFinalized
+      file: ./src/l-1-standard-bridge.ts
