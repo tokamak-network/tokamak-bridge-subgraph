@@ -8,7 +8,7 @@ dataSources:
     name: L1CrossDomainMessenger
     network: sepolia
     source:
-      address: "0x9308c1637530cCAc79961fC152887E148E0f1159"
+      address: "0xc123047238e8f4bFB7Ad849cA4364b721B5ABD8A"
       abi: L1CrossDomainMessenger
       startBlock: 5614234
     mapping:
@@ -81,7 +81,7 @@ dataSources:
     name: L1StandardBridge
     network: sepolia
     source:
-      address: "0x9ca03de588b924c9631b51c83cba83a5c9308aaf"
+      address: "0x1F032B938125f9bE411801fb127785430E7b3971"
       abi: L1StandardBridge
       startBlock: 5614239
     mapping:
@@ -100,7 +100,8 @@ dataSources:
         - event: ERC20DepositInitiated(indexed address,indexed address,indexed
             address,address,uint256,bytes)
           handler: handleERC20DepositInitiated
-        - event: ERC20WithdrawalFinalized(indexed address,indexed address,indexed
+        - event:
+            ERC20WithdrawalFinalized(indexed address,indexed address,indexed
             address,address,uint256,bytes)
           handler: handleERC20WithdrawalFinalized
         - event: ETHDepositInitiated(indexed address,indexed address,uint256,bytes)
