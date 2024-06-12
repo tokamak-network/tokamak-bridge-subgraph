@@ -106,6 +106,7 @@ type StateBatchAppended @entity(immutable: true) {
   blockNumber: BigInt!
   blockTimestamp: BigInt!
   transactionHash: Bytes!
+  rollUpBatch: BigInt!
 }
 
 type StateBatchDeleted @entity(immutable: true) {
