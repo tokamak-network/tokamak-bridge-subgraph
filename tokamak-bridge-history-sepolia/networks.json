@@ -3,6 +3,12 @@
     "L1CrossDomainMessenger": {
       "address": "0x9308c1637530cCAc79961fC152887E148E0f1159",
       "startBlock": 5614234
+    },
+    "StateCommitmentChain": {
+      "address": "0x89b6164E9e09f023D26A9A14fcC09100C843d59a"
+    },
+    "L1StandardBridge": {
+      "address": "0x9ca03de588b924c9631b51c83cba83a5c9308aaf"
     }
   }
 }

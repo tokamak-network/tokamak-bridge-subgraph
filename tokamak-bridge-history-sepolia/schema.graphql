@@ -96,3 +96,70 @@ type Unpaused @entity(immutable: true) {
   blockTimestamp: BigInt!
   transactionHash: Bytes!
 }
+type StateBatchAppended @entity(immutable: true) {
+  id: Bytes!
+  _batchIndex: BigInt! # uint256
+  _batchRoot: Bytes! # bytes32
+  _batchSize: BigInt! # uint256
+  _prevTotalElements: BigInt! # uint256
+  _extraData: Bytes! # bytes
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type StateBatchDeleted @entity(immutable: true) {
+  id: Bytes!
+  _batchIndex: BigInt! # uint256
+  _batchRoot: Bytes! # bytes32
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+type ERC20DepositInitiated @entity(immutable: true) {
+  id: Bytes!
+  _l1Token: Bytes! # address
+  _l2Token: Bytes! # address
+  _from: Bytes! # address
+  _to: Bytes! # address
+  _amount: BigInt! # uint256
+  _data: Bytes! # bytes
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type ERC20WithdrawalFinalized @entity(immutable: true) {
+  id: Bytes!
+  _l1Token: Bytes! # address
+  _l2Token: Bytes! # address
+  _from: Bytes! # address
+  _to: Bytes! # address
+  _amount: BigInt! # uint256
+  _data: Bytes! # bytes
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type ETHDepositInitiated @entity(immutable: true) {
+  id: Bytes!
+  _from: Bytes! # address
+  _to: Bytes! # address
+  _amount: BigInt! # uint256
+  _data: Bytes! # bytes
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type ETHWithdrawalFinalized @entity(immutable: true) {
+  id: Bytes!
+  _from: Bytes! # address
+  _to: Bytes! # address
+  _amount: BigInt! # uint256
+  _data: Bytes! # bytes
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
