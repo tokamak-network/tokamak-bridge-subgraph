@@ -8,7 +8,7 @@ dataSources:
     name: L2CrossTrade
     network: titan-sepolia
     source:
-      address: "0xf40E359d495941c34f6d510CEb7Bf494B04Ee379"
+      address: "0x0c448437EDCb2a093266dF30619924AE8131b9E3"
       abi: L2CrossTrade
       startBlock: 2715
     mapping:
