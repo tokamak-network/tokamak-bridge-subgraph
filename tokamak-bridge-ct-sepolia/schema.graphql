@@ -3,6 +3,7 @@ type EditCT @entity(immutable: true) {
   _requester: Bytes! # address
   _ctAmount: BigInt! # uint256
   _saleCount: BigInt! # uint256
+  _l2chainId: BigInt! # uint256
   blockNumber: BigInt!
   blockTimestamp: BigInt!
   transactionHash: Bytes!

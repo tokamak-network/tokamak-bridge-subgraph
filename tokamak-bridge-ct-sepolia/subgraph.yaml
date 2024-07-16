@@ -8,9 +8,9 @@ dataSources:
     name: L1CrossTrade
     network: sepolia
     source:
-      address: "0xc626fB5ad454eaA9E2E94943547698C19bf4d8c5"
+      address: "0x56e7B6489e8012172766F348c6Be0f351B854880"
       abi: L1CrossTrade
-      startBlock: 6287250
+      startBlock: 6319214
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -24,7 +24,7 @@ dataSources:
         - name: L1CrossTrade
           file: ./abis/L1CrossTrade.json
       eventHandlers:
-        - event: EditCT(address,uint256,indexed uint256)
+        - event: EditCT(address,uint256,indexed uint256,uint256)
           handler: handleEditCT
         - event: RoleAdminChanged(indexed bytes32,indexed bytes32,indexed bytes32)
           handler: handleRoleAdminChanged

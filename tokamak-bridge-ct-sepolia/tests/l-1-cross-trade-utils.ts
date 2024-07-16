@@ -10,7 +10,8 @@ import {
 export function createEditCTEvent(
   _requester: Address,
   _ctAmount: BigInt,
-  _saleCount: BigInt
+  _saleCount: BigInt,
+  _l2chainId: BigInt
 ): EditCT {
   let editCtEvent = changetype<EditCT>(newMockEvent())
 
@@ -32,6 +33,12 @@ export function createEditCTEvent(
     new ethereum.EventParam(
       "_saleCount",
       ethereum.Value.fromUnsignedBigInt(_saleCount)
+    )
+  )
+  editCtEvent.parameters.push(
+    new ethereum.EventParam(
+      "_l2chainId",
+      ethereum.Value.fromUnsignedBigInt(_l2chainId)
     )
   )
 

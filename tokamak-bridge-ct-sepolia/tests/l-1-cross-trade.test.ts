@@ -22,7 +22,13 @@ describe("Describe entity assertions", () => {
     )
     let _ctAmount = BigInt.fromI32(234)
     let _saleCount = BigInt.fromI32(234)
-    let newEditCTEvent = createEditCTEvent(_requester, _ctAmount, _saleCount)
+    let _l2chainId = BigInt.fromI32(234)
+    let newEditCTEvent = createEditCTEvent(
+      _requester,
+      _ctAmount,
+      _saleCount,
+      _l2chainId
+    )
     handleEditCT(newEditCTEvent)
   })
 
@@ -53,6 +59,12 @@ describe("Describe entity assertions", () => {
       "EditCT",
       "0xa16081f360e3847006db660bae1c6d1b2e17ec2a-1",
       "_saleCount",
+      "234"
+    )
+    assert.fieldEquals(
+      "EditCT",
+      "0xa16081f360e3847006db660bae1c6d1b2e17ec2a-1",
+      "_l2chainId",
       "234"
     )
 

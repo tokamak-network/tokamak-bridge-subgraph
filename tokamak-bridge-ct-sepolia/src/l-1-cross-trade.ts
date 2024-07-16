@@ -18,6 +18,7 @@ export function handleEditCT(event: EditCTEvent): void {
   entity._requester = event.params._requester
   entity._ctAmount = event.params._ctAmount
   entity._saleCount = event.params._saleCount
+  entity._l2chainId = event.params._l2chainId
 
   entity.blockNumber = event.block.number
   entity.blockTimestamp = event.block.timestamp
