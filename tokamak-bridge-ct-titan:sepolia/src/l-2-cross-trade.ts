@@ -24,6 +24,7 @@ export function handleCancelCT(event: CancelCTEvent): void {
   entity._requester = event.params._requester
   entity._totalAmount = event.params._totalAmount
   entity._saleCount = event.params._saleCount
+  entity._l2chainId = event.params._l2chainId
 
   entity.blockNumber = event.block.number
   entity.blockTimestamp = event.block.timestamp
@@ -42,6 +43,7 @@ export function handleNonRequestCT(event: NonRequestCTEvent): void {
   entity._totalAmount = event.params._totalAmount
   entity._ctAmount = event.params._ctAmount
   entity._saleCount = event.params._saleCount
+  entity._l2chainId = event.params._l2chainId
   entity._hashValue = event.params._hashValue
 
   entity.blockNumber = event.block.number
@@ -62,6 +64,7 @@ export function handleProviderClaimCT(event: ProviderClaimCTEvent): void {
   entity._totalAmount = event.params._totalAmount
   entity._ctAmount = event.params._ctAmount
   entity._saleCount = event.params._saleCount
+  entity._l2chainId = event.params._l2chainId
 
   entity.blockNumber = event.block.number
   entity.blockTimestamp = event.block.timestamp
@@ -80,6 +83,7 @@ export function handleRequestCT(event: RequestCTEvent): void {
   entity._totalAmount = event.params._totalAmount
   entity._ctAmount = event.params._ctAmount
   entity._saleCount = event.params._saleCount
+  entity._l2chainId = event.params._l2chainId
   entity._hashValue = event.params._hashValue
 
   entity.blockNumber = event.block.number

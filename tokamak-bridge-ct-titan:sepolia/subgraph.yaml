@@ -8,9 +8,9 @@ dataSources:
     name: L2CrossTrade
     network: titan-sepolia
     source:
-      address: "0x0c448437EDCb2a093266dF30619924AE8131b9E3"
+      address: "0x8a9FB22AfA73083EE183cA8E751FaEab7efD7f23"
       abi: L2CrossTrade
-      startBlock: 2715
+      startBlock: 2900
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -27,13 +27,13 @@ dataSources:
         - name: L2CrossTrade
           file: ./abis/L2CrossTrade.json
       eventHandlers:
-        - event: CancelCT(address,uint256,indexed uint256)
+        - event: CancelCT(address,uint256,indexed uint256,uint256)
           handler: handleCancelCT
-        - event: NonRequestCT(address,address,address,uint256,uint256,indexed uint256,bytes32)
+        - event: NonRequestCT(address,address,address,uint256,uint256,indexed uint256,uint256,bytes32)
           handler: handleNonRequestCT
-        - event: ProviderClaimCT(address,address,address,address,uint256,uint256,indexed uint256)
+        - event: ProviderClaimCT(address,address,address,address,uint256,uint256,indexed uint256,uint256)
           handler: handleProviderClaimCT
-        - event: RequestCT(address,address,address,uint256,uint256,indexed uint256,bytes32)
+        - event: RequestCT(address,address,address,uint256,uint256,indexed uint256,uint256,bytes32)
           handler: handleRequestCT
         - event: RoleAdminChanged(indexed bytes32,indexed bytes32,indexed bytes32)
           handler: handleRoleAdminChanged

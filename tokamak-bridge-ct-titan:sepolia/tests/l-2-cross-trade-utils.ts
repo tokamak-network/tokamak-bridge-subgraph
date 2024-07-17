@@ -13,7 +13,8 @@ import {
 export function createCancelCTEvent(
   _requester: Address,
   _totalAmount: BigInt,
-  _saleCount: BigInt
+  _saleCount: BigInt,
+  _l2chainId: BigInt
 ): CancelCT {
   let cancelCtEvent = changetype<CancelCT>(newMockEvent())
 
@@ -37,6 +38,12 @@ export function createCancelCTEvent(
       ethereum.Value.fromUnsignedBigInt(_saleCount)
     )
   )
+  cancelCtEvent.parameters.push(
+    new ethereum.EventParam(
+      "_l2chainId",
+      ethereum.Value.fromUnsignedBigInt(_l2chainId)
+    )
+  )
 
   return cancelCtEvent
 }
@@ -48,6 +55,7 @@ export function createNonRequestCTEvent(
   _totalAmount: BigInt,
   _ctAmount: BigInt,
   _saleCount: BigInt,
+  _l2chainId: BigInt,
   _hashValue: Bytes
 ): NonRequestCT {
   let nonRequestCtEvent = changetype<NonRequestCT>(newMockEvent())
@@ -86,6 +94,12 @@ export function createNonRequestCTEvent(
   )
   nonRequestCtEvent.parameters.push(
     new ethereum.EventParam(
+      "_l2chainId",
+      ethereum.Value.fromUnsignedBigInt(_l2chainId)
+    )
+  )
+  nonRequestCtEvent.parameters.push(
+    new ethereum.EventParam(
       "_hashValue",
       ethereum.Value.fromFixedBytes(_hashValue)
     )
@@ -101,7 +115,8 @@ export function createProviderClaimCTEvent(
   _provider: Address,
   _totalAmount: BigInt,
   _ctAmount: BigInt,
-  _saleCount: BigInt
+  _saleCount: BigInt,
+  _l2chainId: BigInt
 ): ProviderClaimCT {
   let providerClaimCtEvent = changetype<ProviderClaimCT>(newMockEvent())
 
@@ -140,6 +155,12 @@ export function createProviderClaimCTEvent(
       ethereum.Value.fromUnsignedBigInt(_saleCount)
     )
   )
+  providerClaimCtEvent.parameters.push(
+    new ethereum.EventParam(
+      "_l2chainId",
+      ethereum.Value.fromUnsignedBigInt(_l2chainId)
+    )
+  )
 
   return providerClaimCtEvent
 }
@@ -151,6 +172,7 @@ export function createRequestCTEvent(
   _totalAmount: BigInt,
   _ctAmount: BigInt,
   _saleCount: BigInt,
+  _l2chainId: BigInt,
   _hashValue: Bytes
 ): RequestCT {
   let requestCtEvent = changetype<RequestCT>(newMockEvent())
@@ -185,6 +207,12 @@ export function createRequestCTEvent(
     new ethereum.EventParam(
       "_saleCount",
       ethereum.Value.fromUnsignedBigInt(_saleCount)
+    )
+  )
+  requestCtEvent.parameters.push(
+    new ethereum.EventParam(
+      "_l2chainId",
+      ethereum.Value.fromUnsignedBigInt(_l2chainId)
     )
   )
   requestCtEvent.parameters.push(
