@@ -2,6 +2,7 @@ import { newMockEvent } from "matchstick-as"
 import { ethereum, Address, BigInt, Bytes } from "@graphprotocol/graph-ts"
 import {
   EditCT,
+  ProvideCT,
   RoleAdminChanged,
   RoleGranted,
   RoleRevoked
@@ -43,6 +44,63 @@ export function createEditCTEvent(
   )
 
   return editCtEvent
+}
+
+export function createProvideCTEvent(
+  _l1token: Address,
+  _l2token: Address,
+  _requester: Address,
+  _provider: Address,
+  _totalAmount: BigInt,
+  _ctAmount: BigInt,
+  _saleCount: BigInt,
+  _l2chainId: BigInt
+): ProvideCT {
+  let provideCtEvent = changetype<ProvideCT>(newMockEvent())
+
+  provideCtEvent.parameters = new Array()
+
+  provideCtEvent.parameters.push(
+    new ethereum.EventParam("_l1token", ethereum.Value.fromAddress(_l1token))
+  )
+  provideCtEvent.parameters.push(
+    new ethereum.EventParam("_l2token", ethereum.Value.fromAddress(_l2token))
+  )
+  provideCtEvent.parameters.push(
+    new ethereum.EventParam(
+      "_requester",
+      ethereum.Value.fromAddress(_requester)
+    )
+  )
+  provideCtEvent.parameters.push(
+    new ethereum.EventParam("_provider", ethereum.Value.fromAddress(_provider))
+  )
+  provideCtEvent.parameters.push(
+    new ethereum.EventParam(
+      "_totalAmount",
+      ethereum.Value.fromUnsignedBigInt(_totalAmount)
+    )
+  )
+  provideCtEvent.parameters.push(
+    new ethereum.EventParam(
+      "_ctAmount",
+      ethereum.Value.fromUnsignedBigInt(_ctAmount)
+    )
+  )
+  provideCtEvent.parameters.push(
+    new ethereum.EventParam(
+      "_saleCount",
+      ethereum.Value.fromUnsignedBigInt(_saleCount)
+    )
+  )
+  provideCtEvent.parameters.push(
+    new ethereum.EventParam(
+      "_l2chainId",
+      ethereum.Value.fromUnsignedBigInt(_l2chainId)
+    )
+  )
+
+  return provideCtEvent
 }
 
 export function createRoleAdminChangedEvent(
