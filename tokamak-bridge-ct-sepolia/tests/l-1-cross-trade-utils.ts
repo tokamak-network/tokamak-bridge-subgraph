@@ -2,6 +2,7 @@ import { newMockEvent } from "matchstick-as"
 import { ethereum, Address, BigInt, Bytes } from "@graphprotocol/graph-ts"
 import {
   EditCT,
+  L1CancelCT,
   ProvideCT,
   RoleAdminChanged,
   RoleGranted,
@@ -44,6 +45,44 @@ export function createEditCTEvent(
   )
 
   return editCtEvent
+}
+
+export function createL1CancelCTEvent(
+  _requester: Address,
+  _totalAmount: BigInt,
+  _saleCount: BigInt,
+  _l2chainId: BigInt
+): L1CancelCT {
+  let l1CancelCtEvent = changetype<L1CancelCT>(newMockEvent())
+
+  l1CancelCtEvent.parameters = new Array()
+
+  l1CancelCtEvent.parameters.push(
+    new ethereum.EventParam(
+      "_requester",
+      ethereum.Value.fromAddress(_requester)
+    )
+  )
+  l1CancelCtEvent.parameters.push(
+    new ethereum.EventParam(
+      "_totalAmount",
+      ethereum.Value.fromUnsignedBigInt(_totalAmount)
+    )
+  )
+  l1CancelCtEvent.parameters.push(
+    new ethereum.EventParam(
+      "_saleCount",
+      ethereum.Value.fromUnsignedBigInt(_saleCount)
+    )
+  )
+  l1CancelCtEvent.parameters.push(
+    new ethereum.EventParam(
+      "_l2chainId",
+      ethereum.Value.fromUnsignedBigInt(_l2chainId)
+    )
+  )
+
+  return l1CancelCtEvent
 }
 
 export function createProvideCTEvent(

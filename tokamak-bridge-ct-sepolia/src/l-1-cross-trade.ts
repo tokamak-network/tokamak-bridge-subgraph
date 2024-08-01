@@ -1,5 +1,6 @@
 import {
   EditCT as EditCTEvent,
+  L1CancelCT as L1CancelCTEvent,
   ProvideCT as ProvideCTEvent,
   RoleAdminChanged as RoleAdminChangedEvent,
   RoleGranted as RoleGrantedEvent,
@@ -7,6 +8,7 @@ import {
 } from "../generated/L1CrossTrade/L1CrossTrade"
 import {
   EditCT,
+  L1CancelCT,
   ProvideCT,
   RoleAdminChanged,
   RoleGranted,
@@ -19,6 +21,22 @@ export function handleEditCT(event: EditCTEvent): void {
   )
   entity._requester = event.params._requester
   entity._ctAmount = event.params._ctAmount
+  entity._saleCount = event.params._saleCount
+  entity._l2chainId = event.params._l2chainId
+
+  entity.blockNumber = event.block.number
+  entity.blockTimestamp = event.block.timestamp
+  entity.transactionHash = event.transaction.hash
+
+  entity.save()
+}
+
+export function handleL1CancelCT(event: L1CancelCTEvent): void {
+  let entity = new L1CancelCT(
+    event.transaction.hash.concatI32(event.logIndex.toI32())
+  )
+  entity._requester = event.params._requester
+  entity._totalAmount = event.params._totalAmount
   entity._saleCount = event.params._saleCount
   entity._l2chainId = event.params._l2chainId
 
