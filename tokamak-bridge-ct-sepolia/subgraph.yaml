@@ -8,7 +8,7 @@ dataSources:
     name: L1CrossTrade
     network: sepolia
     source:
-      address: "0xF4B6ab8280f1c53e2059Dc9E5b62482c86128AC9"
+      address: "0x32C0E75aF31F73F9B4E9252861988637412e4149"
       abi: L1CrossTrade
       startBlock: 6413920
     mapping:
