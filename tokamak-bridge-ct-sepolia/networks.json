@@ -1,8 +1,8 @@
 {
   "sepolia": {
     "L1CrossTrade": {
-      "address": "0xF4B6ab8280f1c53e2059Dc9E5b62482c86128AC9",
-      "startBlock": 6413920
+      "address": "0xC55E3A821f9F7C2C27A2ca9D7059d22C9DA75700",
+      "startBlock": 6415364
     }
   }
 }

@@ -121,6 +121,12 @@
         "internalType": "uint256",
         "name": "_l2chainId",
         "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "bytes32",
+        "name": "_hash",
+        "type": "bytes32"
       }
     ],
     "name": "ProvideCT",

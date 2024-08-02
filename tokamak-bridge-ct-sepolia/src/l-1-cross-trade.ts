@@ -59,6 +59,7 @@ export function handleProvideCT(event: ProvideCTEvent): void {
   entity._ctAmount = event.params._ctAmount
   entity._saleCount = event.params._saleCount
   entity._l2chainId = event.params._l2chainId
+  entity._hash = event.params._hash
 
   entity.blockNumber = event.block.number
   entity.blockTimestamp = event.block.timestamp

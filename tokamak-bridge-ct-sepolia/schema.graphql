@@ -30,6 +30,7 @@ type ProvideCT @entity(immutable: true) {
   _ctAmount: BigInt! # uint256
   _saleCount: BigInt! # uint256
   _l2chainId: BigInt! # uint256
+  _hash: Bytes! # bytes32
   blockNumber: BigInt!
   blockTimestamp: BigInt!
   transactionHash: Bytes!

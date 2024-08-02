@@ -93,7 +93,8 @@ export function createProvideCTEvent(
   _totalAmount: BigInt,
   _ctAmount: BigInt,
   _saleCount: BigInt,
-  _l2chainId: BigInt
+  _l2chainId: BigInt,
+  _hash: Bytes
 ): ProvideCT {
   let provideCtEvent = changetype<ProvideCT>(newMockEvent())
 
@@ -137,6 +138,9 @@ export function createProvideCTEvent(
       "_l2chainId",
       ethereum.Value.fromUnsignedBigInt(_l2chainId)
     )
+  )
+  provideCtEvent.parameters.push(
+    new ethereum.EventParam("_hash", ethereum.Value.fromFixedBytes(_hash))
   )
 
   return provideCtEvent
