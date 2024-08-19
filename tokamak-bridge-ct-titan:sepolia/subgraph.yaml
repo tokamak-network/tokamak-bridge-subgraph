@@ -6,11 +6,11 @@ schema:
 dataSources:
   - kind: ethereum
     name: L2CrossTrade
-    network: sepolia
+    network: titan-sepolia
     source:
-      address: "0x41B5F0E89CFcc320f73f24d845A665B01Ba6DfdD"
+      address: "0xBD20Cd677066ced4099A479feBD2A416686917BB"
       abi: L2CrossTrade
-      startBlock: 6528625
+      startBlock: 0
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
