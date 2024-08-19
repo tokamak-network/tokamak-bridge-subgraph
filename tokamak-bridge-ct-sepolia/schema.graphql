@@ -1,9 +1,13 @@
 type EditCT @entity(immutable: true) {
   id: Bytes!
+  _l1token: Bytes! # address
+  _l2token: Bytes! # address
   _requester: Bytes! # address
+  _totalAmount: BigInt! # uint256
   _ctAmount: BigInt! # uint256
   _saleCount: BigInt! # uint256
   _l2chainId: BigInt! # uint256
+  _hash: Bytes! # bytes32
   blockNumber: BigInt!
   blockTimestamp: BigInt!
   transactionHash: Bytes!
@@ -11,10 +15,13 @@ type EditCT @entity(immutable: true) {
 
 type L1CancelCT @entity(immutable: true) {
   id: Bytes!
+  _l1token: Bytes! # address
+  _l2token: Bytes! # address
   _requester: Bytes! # address
   _totalAmount: BigInt! # uint256
   _saleCount: BigInt! # uint256
   _l2chainId: BigInt! # uint256
+  _hash: Bytes! # bytes32
   blockNumber: BigInt!
   blockTimestamp: BigInt!
   transactionHash: Bytes!

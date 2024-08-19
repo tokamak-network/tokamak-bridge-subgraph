@@ -10,19 +10,35 @@ import {
 } from "../generated/L1CrossTrade/L1CrossTrade"
 
 export function createEditCTEvent(
+  _l1token: Address,
+  _l2token: Address,
   _requester: Address,
+  _totalAmount: BigInt,
   _ctAmount: BigInt,
   _saleCount: BigInt,
-  _l2chainId: BigInt
+  _l2chainId: BigInt,
+  _hash: Bytes
 ): EditCT {
   let editCtEvent = changetype<EditCT>(newMockEvent())
 
   editCtEvent.parameters = new Array()
 
   editCtEvent.parameters.push(
+    new ethereum.EventParam("_l1token", ethereum.Value.fromAddress(_l1token))
+  )
+  editCtEvent.parameters.push(
+    new ethereum.EventParam("_l2token", ethereum.Value.fromAddress(_l2token))
+  )
+  editCtEvent.parameters.push(
     new ethereum.EventParam(
       "_requester",
       ethereum.Value.fromAddress(_requester)
+    )
+  )
+  editCtEvent.parameters.push(
+    new ethereum.EventParam(
+      "_totalAmount",
+      ethereum.Value.fromUnsignedBigInt(_totalAmount)
     )
   )
   editCtEvent.parameters.push(
@@ -43,20 +59,32 @@ export function createEditCTEvent(
       ethereum.Value.fromUnsignedBigInt(_l2chainId)
     )
   )
+  editCtEvent.parameters.push(
+    new ethereum.EventParam("_hash", ethereum.Value.fromFixedBytes(_hash))
+  )
 
   return editCtEvent
 }
 
 export function createL1CancelCTEvent(
+  _l1token: Address,
+  _l2token: Address,
   _requester: Address,
   _totalAmount: BigInt,
   _saleCount: BigInt,
-  _l2chainId: BigInt
+  _l2chainId: BigInt,
+  _hash: Bytes
 ): L1CancelCT {
   let l1CancelCtEvent = changetype<L1CancelCT>(newMockEvent())
 
   l1CancelCtEvent.parameters = new Array()
 
+  l1CancelCtEvent.parameters.push(
+    new ethereum.EventParam("_l1token", ethereum.Value.fromAddress(_l1token))
+  )
+  l1CancelCtEvent.parameters.push(
+    new ethereum.EventParam("_l2token", ethereum.Value.fromAddress(_l2token))
+  )
   l1CancelCtEvent.parameters.push(
     new ethereum.EventParam(
       "_requester",
@@ -80,6 +108,9 @@ export function createL1CancelCTEvent(
       "_l2chainId",
       ethereum.Value.fromUnsignedBigInt(_l2chainId)
     )
+  )
+  l1CancelCtEvent.parameters.push(
+    new ethereum.EventParam("_hash", ethereum.Value.fromFixedBytes(_hash))
   )
 
   return l1CancelCtEvent
