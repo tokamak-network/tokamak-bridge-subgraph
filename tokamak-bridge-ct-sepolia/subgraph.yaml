@@ -8,9 +8,9 @@ dataSources:
     name: L1CrossTrade
     network: sepolia
     source:
-      address: "0xca7808601Cf65bc3E4175b574D7f98E6dCDd7c9D"
+      address: "0x17985dc326661c7F43Dd79d216D4027f453704F7"
       abi: L1CrossTrade
-      startBlock: 6480430
+      startBlock: 6415363
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
