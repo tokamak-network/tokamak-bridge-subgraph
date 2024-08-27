@@ -1,0 +1,16 @@
+{
+  "sepolia": {
+    "L1CrossDomainMessenger": {
+      "address": "0x9a503afa7e924382dade98d09187b94fb4a07fb0",
+      "startBlock": 6098313
+    },
+    "L1UsdcBridge": {
+      "address": "0x34122cba1e2be37f7357184412cdeebdeb0858e8",
+      "startBlock": 6098320
+    },
+    "L1StandardBridge": {
+      "address": "0xe63df06883b875e6025db69738fa15a584ce7b83",
+      "startBlock": 6098317
+    }
+  }
+}
