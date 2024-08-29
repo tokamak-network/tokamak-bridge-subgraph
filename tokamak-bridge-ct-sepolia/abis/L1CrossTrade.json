@@ -376,11 +376,12 @@
       { "internalType": "uint256", "name": "_totalAmount", "type": "uint256" },
       { "internalType": "uint256", "name": "_ctAmount", "type": "uint256" },
       { "internalType": "uint256", "name": "_saleCount", "type": "uint256" },
-      { "internalType": "uint256", "name": "_l2chainId", "type": "uint256" }
+      { "internalType": "uint256", "name": "_startChainId", "type": "uint256" },
+      { "internalType": "uint256", "name": "_endChainId", "type": "uint256" }
     ],
     "name": "getHash",
     "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }],
-    "stateMutability": "view",
+    "stateMutability": "pure",
     "type": "function"
   },
   {
