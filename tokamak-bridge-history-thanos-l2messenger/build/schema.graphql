@@ -1,0 +1,39 @@
+type FailedRelayedMessage @entity(immutable: true) {
+  id: Bytes!
+  msgHash: Bytes! # bytes32
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type RelayedMessage @entity(immutable: true) {
+  id: Bytes!
+  msgHash: Bytes! # bytes32
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+type SentMessage @entity(immutable: true) {
+  id: Bytes!
+  target: Bytes! # address
+  sender: Bytes! # address
+  message: Bytes! # bytes
+  messageNonce: BigInt! # uint256
+  gasLimit: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type DepositFinalized @entity(immutable: true) {
+  id: Bytes!
+  l1Token: Bytes! # address
+  l2Token: Bytes! # address
+  from: Bytes! # address
+  to: Bytes! # address
+  amount: BigInt! # uint256
+  extraData: Bytes! # bytes
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
