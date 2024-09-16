@@ -37,3 +37,17 @@ type DepositFinalized @entity(immutable: true) {
   blockTimestamp: BigInt!
   transactionHash: Bytes!
 }
+
+type MessagePassed @entity(immutable: true) {
+  id: Bytes!
+  nonce: BigInt!
+  sender: Bytes!
+  target: Bytes!
+  value: BigInt!
+  gasLimit: BigInt!
+  data: Bytes!
+  withdrawalHash: Bytes!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
