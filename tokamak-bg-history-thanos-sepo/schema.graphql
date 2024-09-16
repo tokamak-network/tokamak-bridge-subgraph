@@ -137,3 +137,33 @@ type ETHWithdrawalFinalized @entity(immutable: true) {
   blockTimestamp: BigInt!
   transactionHash: Bytes!
 }
+
+type TransactionDeposited @entity(immutable: true) {
+  id: Bytes!
+  from: Bytes! # address
+  to: Bytes! # address
+  version: BigInt! # uint256
+  opaqueData: Bytes! # bytes
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type WithdrawalFinalized @entity(immutable: true) {
+  id: Bytes!
+  withdrawalHash: Bytes! # bytes32
+  success: Boolean! # bool
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type WithdrawalProven @entity(immutable: true) {
+  id: Bytes!
+  withdrawalHash: Bytes! # bytes32
+  from: Bytes! # address
+  to: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}

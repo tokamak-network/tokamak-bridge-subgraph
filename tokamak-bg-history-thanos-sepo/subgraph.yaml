@@ -102,4 +102,33 @@ dataSources:
           handler: handleETHWithdrawalFinalized
         - event: Initialized(uint8)
           handler: handleInitialized
-      file: ./src/l-1-standard-bridge.ts
+      file: ./src/l-1-standard-bridge.ts  
+  - kind: ethereum
+    name: OptimismPortal
+    network: sepolia
+    source:
+      address: "0x7b6db1316e22167b56211cDDC33431098BaBC3c2"
+      abi: OptimismPortal
+      startBlock: 6098311
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Initialized
+        - TransactionDeposited
+        - WithdrawalFinalized
+        - WithdrawalProven
+      abis:
+        - name: OptimismPortal
+          file: ./abis/OptimismPortal.json
+      eventHandlers:
+        - event: Initialized(uint8)
+          handler: handleInitialized
+        - event: TransactionDeposited(indexed address,indexed address,indexed uint256,bytes)
+          handler: handleTransactionDeposited
+        - event: WithdrawalFinalized(indexed bytes32,bool)
+          handler: handleWithdrawalFinalized
+        - event: WithdrawalProven(indexed bytes32,indexed address,indexed address)
+          handler: handleWithdrawalProven
+      file: ./src/optimism-portal.ts
