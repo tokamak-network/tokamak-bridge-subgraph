@@ -15,6 +15,10 @@
     "OptimismPortal": {
       "address": "0x5a6e54511b6bafae6381e2bbcb62a00dfb665ee9",
       "startBlock": 6098311
+    },
+    "L2OutputOracle": {
+      "address": "0x4900729d127ee376906d6B7B1b88A936ab802211",
+      "startBlock": 6098314
     }
   }
 }

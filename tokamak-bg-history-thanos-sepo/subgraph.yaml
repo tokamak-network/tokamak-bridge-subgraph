@@ -132,3 +132,28 @@ dataSources:
         - event: WithdrawalProven(indexed bytes32,indexed address,indexed address)
           handler: handleWithdrawalProven
       file: ./src/optimism-portal.ts
+
+  - kind: ethereum
+    name: L2OutputOracle
+    network: sepolia
+    source:
+      address: "0xaB8A5Ac696675D65D09E24C2876Aa8a7e1Af5640"
+      abi: L2OutputOracle
+      startBlock: 6098314
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Initialized
+        - OutputProposed
+        - OutputsDeleted
+      abis:
+        - name: L2OutputOracle
+          file: ./abis/L2OutputOracle.json
+      eventHandlers:
+        - event: OutputProposed(indexed bytes32,indexed uint256,indexed uint256,uint256)
+          handler: handleOutputProposed
+        - event: OutputsDeleted(indexed uint256,indexed uint256)
+          handler: handleOutputsDeleted
+      file: ./src/l-2-output-oracle.ts
