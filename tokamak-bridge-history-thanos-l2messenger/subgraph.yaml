@@ -1,0 +1,72 @@
+specVersion: 0.0.5
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: L2CrossDomainMessenger
+    network: thanos
+    source:
+      address: "0x4200000000000000000000000000000000000007"
+      abi: L2CrossDomainMessenger
+      startBlock: 0
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - FailedRelayedMessage
+        - RelayedMessage
+        - SentMessage
+      abis:
+        - name: L2CrossDomainMessenger
+          file: ./abis/L2CrossDomainMessenger.json
+      eventHandlers:
+        - event: FailedRelayedMessage(indexed bytes32)
+          handler: handleFailedRelayedMessage
+        - event: RelayedMessage(indexed bytes32)
+          handler: handleRelayedMessage
+        - event: SentMessage(indexed address,address,bytes,uint256,uint256)
+          handler: handleSentMessage
+      file: ./src/l-2-cross-domain-messenger.ts
+  - kind: ethereum
+    name: L2StandardBridge
+    network: thanos
+    source:
+      address: "0x4200000000000000000000000000000000000010"
+      abi: L2StandardBridge
+      startBlock: 0
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - DepositFinalized
+      abis:
+        - name: L2StandardBridge
+          file: ./abis/L2StandardBridge.json
+      eventHandlers:
+        - event: DepositFinalized(indexed address,indexed address,indexed address,address,uint256,bytes)
+          handler: handleDepositFinalized
+      file: ./src/l-2-standard-bridge.ts
+
+  - kind: ethereum
+    name: L2ToL1MessagePasser
+    network: thanos
+    source:
+      address: "0x4200000000000000000000000000000000000016"
+      abi: L2ToL1MessagePasser
+      startBlock: 0
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - MessagePassed
+      abis:
+        - name: L2ToL1MessagePasser
+          file: ./abis/L2ToL1MessagePasser.json
+      eventHandlers:
+        - event: MessagePassed(indexed uint256,indexed address,indexed address,uint256,uint256,bytes,bytes32)
+          handler: handleMessagePassed
+      file: ./src/l-2-to-l-1-message-passer.ts
+

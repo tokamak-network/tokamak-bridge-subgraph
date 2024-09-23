@@ -1,0 +1,27 @@
+{
+  "name": "L2Messenger",
+  "license": "UNLICENSED",
+  "scripts": {
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "create": "graph create --node https://graph-node.thanos-sepolia.tokamak.network/deploy tokamak/Thanos-L2Messenger",
+    "deploy-thanos": "graph deploy --node https://graph-node.thanos-sepolia.tokamak.network/deploy --ipfs https://ipfs.thanos-sepolia.tokamak.network tokamak/Thanos-L2Messenger",
+    "remove": "graph remove --node https://thegraph.titan-goerli.tokamak.network/deploy victor/L2Messenger",
+    "deploy": "graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ victor/L2Messenger",
+    "create-local": "graph create --node http://localhost:8020/ victor/L2Messenger",
+    "remove-local": "graph remove --node http://localhost:8020/ victor/L2Messenger",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 victor/L2Messenger",
+    "test": "graph test"
+  },
+  "dependencies": {
+    "@graphprotocol/graph-cli": "0.48.0",
+    "@graphprotocol/graph-ts": "^0.29.1",
+    "@types/node": "^20.4.5",
+    "axios": "^1.4.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.6"
+  },
+  "devDependencies": {
+    "matchstick-as": "0.5.0"
+  }
+}

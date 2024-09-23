@@ -1,0 +1,24 @@
+{
+  "sepolia": {
+    "L1CrossDomainMessenger": {
+      "address": "0x9a503afa7e924382dade98d09187b94fb4a07fb0",
+      "startBlock": 6098313
+    },
+    "L1UsdcBridge": {
+      "address": "0x34122cba1e2be37f7357184412cdeebdeb0858e8",
+      "startBlock": 6098320
+    },
+    "L1StandardBridge": {
+      "address": "0xe63df06883b875e6025db69738fa15a584ce7b83",
+      "startBlock": 6098317
+    },
+    "OptimismPortal": {
+      "address": "0x5a6e54511b6bafae6381e2bbcb62a00dfb665ee9",
+      "startBlock": 6098311
+    },
+    "L2OutputOracle": {
+      "address": "0x4900729d127ee376906d6B7B1b88A936ab802211",
+      "startBlock": 6098314
+    }
+  }
+}
