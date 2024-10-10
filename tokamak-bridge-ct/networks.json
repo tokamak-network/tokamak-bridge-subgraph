@@ -1,0 +1,8 @@
+{
+  "mainnet": {
+    "L1CrossTrade": {
+      "address": "0x26947c3dc054c5220fe3f999e2f9109eaea17e26",
+      "startBlock": 20919561
+    }
+  }
+}

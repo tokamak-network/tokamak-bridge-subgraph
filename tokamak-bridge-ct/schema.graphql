@@ -1,0 +1,74 @@
+type EditCT @entity(immutable: true) {
+  id: Bytes!
+  _l1token: Bytes! # address
+  _l2token: Bytes! # address
+  _requester: Bytes! # address
+  _totalAmount: BigInt! # uint256
+  _ctAmount: BigInt! # uint256
+  _saleCount: BigInt! # uint256
+  _l2chainId: BigInt! # uint256
+  _hash: Bytes! # bytes32
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type L1CancelCT @entity(immutable: true) {
+  id: Bytes!
+  _l1token: Bytes! # address
+  _l2token: Bytes! # address
+  _requester: Bytes! # address
+  _totalAmount: BigInt! # uint256
+  _saleCount: BigInt! # uint256
+  _l2chainId: BigInt! # uint256
+  _hash: Bytes! # bytes32
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type ProvideCT @entity(immutable: true) {
+  id: Bytes!
+  _l1token: Bytes! # address
+  _l2token: Bytes! # address
+  _requester: Bytes! # address
+  _provider: Bytes! # address
+  _totalAmount: BigInt! # uint256
+  _ctAmount: BigInt! # uint256
+  _saleCount: BigInt! # uint256
+  _l2chainId: BigInt! # uint256
+  _hash: Bytes! # bytes32
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type RoleAdminChanged @entity(immutable: true) {
+  id: Bytes!
+  role: Bytes! # bytes32
+  previousAdminRole: Bytes! # bytes32
+  newAdminRole: Bytes! # bytes32
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type RoleGranted @entity(immutable: true) {
+  id: Bytes!
+  role: Bytes! # bytes32
+  account: Bytes! # address
+  sender: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type RoleRevoked @entity(immutable: true) {
+  id: Bytes!
+  role: Bytes! # bytes32
+  account: Bytes! # address
+  sender: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}

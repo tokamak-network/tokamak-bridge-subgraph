@@ -1,0 +1,41 @@
+specVersion: 1.0.0
+indexerHints:
+  prune: auto
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: L1CrossTrade
+    network: mainnet
+    source:
+      address: "0x26947c3dc054c5220fe3f999e2f9109eaea17e26"
+      abi: L1CrossTrade
+      startBlock: 20919561
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - EditCT
+        - L1CancelCT
+        - ProvideCT
+        - RoleAdminChanged
+        - RoleGranted
+        - RoleRevoked
+      abis:
+        - name: L1CrossTrade
+          file: ./abis/L1CrossTrade.json
+      eventHandlers:
+        - event: EditCT(address,address,address,uint256,uint256,indexed uint256,uint256,bytes32)
+          handler: handleEditCT
+        - event: L1CancelCT(address,address,address,uint256,indexed uint256,uint256,bytes32)
+          handler: handleL1CancelCT
+        - event: ProvideCT(address,address,address,address,uint256,uint256,indexed uint256,uint256,bytes32)
+          handler: handleProvideCT
+        - event: RoleAdminChanged(indexed bytes32,indexed bytes32,indexed bytes32)
+          handler: handleRoleAdminChanged
+        - event: RoleGranted(indexed bytes32,indexed address,indexed address)
+          handler: handleRoleGranted
+        - event: RoleRevoked(indexed bytes32,indexed address,indexed address)
+          handler: handleRoleRevoked
+      file: ./src/l-1-cross-trade.ts
