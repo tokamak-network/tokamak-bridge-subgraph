@@ -8,7 +8,7 @@ dataSources:
     name: L1CrossTrade
     network: mainnet
     source:
-      address: "0x26947c3dc054c5220fe3f999e2f9109eaea17e26"
+      address: "0x23DDf582c26Da5FDb7514aD22e7D74A369faD117"
       abi: L1CrossTrade
       startBlock: 20919561
     mapping:
