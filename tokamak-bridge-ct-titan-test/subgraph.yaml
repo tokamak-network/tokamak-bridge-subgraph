@@ -1,0 +1,26 @@
+specVersion: 1.0.0
+indexerHints:
+  prune: auto
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: L2CrossTrade
+    network: titan
+    source:
+      address: "0xD6e99ec486Afc8ae26d36a6Ab6240D1e0ecf0271"
+      abi: L2CrossTrade
+      startBlock: 0
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - RequestCT
+      abis:
+        - name: L2CrossTrade
+          file: ./abis/L2CrossTrade.json
+      eventHandlers:
+        - event: RequestCT(address,address,address,uint256,uint256,indexed uint256,uint256,bytes32)
+          handler: handleRequestCT
+      file: ./src/l-2-cross-trade.ts
